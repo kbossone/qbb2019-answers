@@ -21,3 +21,8 @@ convert and index
 
 Quantify:
 	/Users/cmdb/qbb2019-answers/day2-lunch $ stringtie indexed-SRR072893-10k.bam -G BDGP6.Ensembl.81.gtf -o quant.SRR072893-10k.gtf -p 4 -e -B
+	
+QUESTION 3:
+/Users/cmdb/qbb2019-answers/day2-lunch $ cut -f 3 SRR072893.sam | sort -n | uniq -c
+
+Another hella better way is with python.
