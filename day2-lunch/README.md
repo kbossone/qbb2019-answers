@@ -8,8 +8,6 @@ Quality report:
 	
 	/Users/cmdb/qbb2019-answers/day2-lunch $ fastqc first10kSRR072893.fastq 
 	/Users/cmdb/qbb2019-answers/day2-lunch $ ls
-	SRR072893.fastq			first10kSRR072893_fastqc.html
-	first10kSRR072893.fastq		first10kSRR072893_fastqc.zip
 	/Users/cmdb/qbb2019-answers/day2-lunch $ open first10kSRR072893_fastqc.html
 
 Map reads to BDGP6:
