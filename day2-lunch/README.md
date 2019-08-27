@@ -25,8 +25,5 @@ Quantify:
 	
 QUESTION 3:
 
-	/Users/cmdb/qbb2019-answers/day2-lunch $ cut -f 3 SRR072893.sam | grep -v "LN" "*" | sort -n | uniq -c
-grep "^SRR072893" SRR072893.sam |cut -f 3 | sort | uniq -c
-
-
-Another hella better way is with python.
+	/Users/cmdb/qbb2019-answers/day2-lunch $ /Users/cmdb/qbb2019-answers/day2-lunch $ grep -v "@" SRR072893.sam | cut -f 3 | sort | uniq -c
+	/Users/cmdb/qbb2019-answers/day2-lunch $ grep "^SRR072893" SRR072893.sam |cut -f 3 | sort | uniq -c
