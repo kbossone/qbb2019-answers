@@ -13,16 +13,20 @@ Quality report:
 	/Users/cmdb/qbb2019-answers/day2-lunch $ open first10kSRR072893_fastqc.html
 
 Map reads to BDGP6:
+	
 	/Users/cmdb/qbb2019-answers/day2-lunch $ hisat2 -p 4 -x BDGP6 -U first10kSRR072893.fastq -S SRR072893-10k.sam
 
 convert and index
+	
 	/Users/cmdb/qbb2019-answers/day2-lunch $ samtools sort -@ 4 SRR072893-10k.sam -o indexed-SRR072893-10k.bam
 	/Users/cmdb/qbb2019-answers/day2-lunch $ samtools index indexed-SRR072893-10k.bam indexed-SRR072893-10k.bam.bai
 
 Quantify:
+	
 	/Users/cmdb/qbb2019-answers/day2-lunch $ stringtie indexed-SRR072893-10k.bam -G BDGP6.Ensembl.81.gtf -o quant.SRR072893-10k.gtf -p 4 -e -B
 	
 QUESTION 3:
-/Users/cmdb/qbb2019-answers/day2-lunch $ cut -f 3 SRR072893.sam | sort -n | uniq -c
+
+	/Users/cmdb/qbb2019-answers/day2-lunch $ cut -f 3 SRR072893.sam | grep -v "LN" "*" | sort -n | uniq -c
 
 Another hella better way is with python.
