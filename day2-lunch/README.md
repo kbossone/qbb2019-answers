@@ -27,3 +27,7 @@ QUESTION 3:
 
 	/Users/cmdb/qbb2019-answers/day2-lunch $ /Users/cmdb/qbb2019-answers/day2-lunch $ grep -v "@" SRR072893.sam | cut -f 3 | sort | uniq -c
 	/Users/cmdb/qbb2019-answers/day2-lunch $ grep "^SRR072893" SRR072893.sam |cut -f 3 | sort | uniq -c
+	
+
+QUESTION 4:
+	The extra fields found on certain alignments in the list are optional fields that have been defined.
