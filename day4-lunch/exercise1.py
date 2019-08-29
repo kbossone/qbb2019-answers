@@ -23,12 +23,14 @@ scale = float(sys.argv[4])
 
 x = np.linspace(my_data.min(), my_data.max(), 100)
 y = stats.skewnorm.pdf(x,a,center,scale)
+y_norm = stats.norm.pdf(x,center,scale)
 
  
 fig, ax = plt.subplots()
 
 ax.hist(my_data,bins = 100,density = True)
 ax.plot(x,y)
+ax.plot(x,y_norm)
 ax.set_title("Frequency of FPKMs")
 ax.set_xlabel("log[FPKM]")
 ax.set_ylabel("Percent of Frequency")
