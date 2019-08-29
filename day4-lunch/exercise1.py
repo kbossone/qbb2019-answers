@@ -20,10 +20,12 @@ my_data = np.log2(ctab.loc[goi,"FPKM"])
 a = float(sys.argv[2])
 center = float(sys.argv[3])
 scale = float(sys.argv[4])
+center_norm = float(sys.argv[5])
+scale_norm = float(sys.argv[6])
 
 x = np.linspace(my_data.min(), my_data.max(), 100)
 y = stats.skewnorm.pdf(x,a,center,scale)
-y_norm = stats.norm.pdf(x,center,scale)
+y_norm = stats.norm.pdf(x,center_norm,scale_norm)
 
  
 fig, ax = plt.subplots()
