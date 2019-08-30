@@ -33,7 +33,7 @@ ax.plot(male_data, color = "blue")
 ax.plot(female_data, color = "red")
 ax.set_title("Male and Female mRNA abundance for Sxl Transcripts")
 
-
+ax.set_xlabel("Embryonic Stage")
 ax.set_xticklabels(labels2, rotation='vertical')
 ax.set_xticks(np.arange(len(labels2)))
 
