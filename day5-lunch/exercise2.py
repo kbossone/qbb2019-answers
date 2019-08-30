@@ -22,9 +22,9 @@ for i,t in genes.iterrows():
         a = t.loc["chr"]
         t_name = t.loc["t_name"]
         if prom2 > 0: 
-            print(a,prom1,prom2,t_name,sep="\t")
+            print(a,prom2,prom1,t_name,sep="\t")
         else:
-            print(a,prom1,t.loc["start"],t_name,sep="\t")
+            print(a,t.loc["start"],prom1,t_name,sep="\t")
 
     elif t.loc["strand"] == "-":
         prom3 = int(t.loc["end"]) + 500
@@ -32,6 +32,6 @@ for i,t in genes.iterrows():
         a = t.loc["chr"]
         t_name = t.loc["t_name"]
         if prom4 > 0:
-            print(a,prom3,prom4,t_name,sep="\t")
+            print(a,prom4,prom3,t_name,sep="\t")
         else:
-            print(a,prom3,t.loc["start"],t_name,sep="\t")
+            print(a,t.loc["start"],prom3,t_name,sep="\t")
