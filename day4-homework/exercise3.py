@@ -29,7 +29,7 @@ labels = ["Male","Female"]
 labels2 = ["10","11","12","13","14A","14B","14C","14D"]
 
 fig,ax = plt.subplots()
-ax.plot(male_data, color = "blue", label="Male %s ")
+ax.plot(male_data, color = "blue")
 ax.plot(female_data, color = "red")
 ax.set_title("Male and Female mRNA abundance for Sxl Transcripts")
 
