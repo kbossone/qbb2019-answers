@@ -28,17 +28,27 @@ number_iterations = 0
 
 #binary code
 pos_search = 21378950
-
 while (low <= high):
     mid = int((high+low)/2)
     number_iterations += 1
+    if (high-low==1):
+        break
+        
     if (pos_search < gene_list[mid][0]):
-        gene_list = gene_list[low:mid+1]
+        high = mid
 
-    elif (pos_search > gene_list[mid][0]):
-       low = gene_list[mid][0]
-       gene_list = gene_list[mid:high+1]
-    else:
-        print(gene_list[mid])
-        print(number_iterations)
-        #print(gene_list(range([mid] - 20, [mid] + 20) + " " + number_iterations)
+    elif (pos_search > gene_list[mid][1]):
+        low = mid
+    # else:
+    #     print(gene_list[mid][0])
+    #     print(number_iterations)
+    # print (mid, low, high)
+    
+if (abs(gene_list[low][1]-pos_search)) > (abs(gene_list[high][0]-pos_search)):
+    mid = high
+
+if (abs(gene_list[low][1] - pos_search)) < (abs(gene_list[high][0]-pos_search)):
+    mid = low
+
+print(gene_list[mid])
+print (number_iterations)
