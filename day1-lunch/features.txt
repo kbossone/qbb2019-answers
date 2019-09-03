@@ -1,8 +1,3 @@
-   1 #!genebuild-last-updated 2014-09
-   1 #!genome-build BDGP6
-   1 #!genome-build-accession NCBI:GCA_000001215.4
-   1 #!genome-date 2014-07
-   1 #!genome-version BDGP6
 160095 CDS
    4 Selenocysteine
 79026 UTR
