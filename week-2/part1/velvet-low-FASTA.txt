@@ -1,0 +1,6 @@
+N50 = 229
+82
+Max length = 649
+Min length = 36
+Number of contigs = 82
+The average length of the contigs = 232.17073170731706
