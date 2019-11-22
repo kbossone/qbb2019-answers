@@ -8,27 +8,25 @@ from matplotlib import pyplot as plt
 n452 = open(sys.argv[1])
 n454 = open(sys.argv[2])
 
-list452 = []
-list454 = []
-uniq452 = []
-uniq454 = []
+methylation452 = {}
+methylation454 = {}
+
+upmeth452 = []
+upmeth454 = []
 
 for line in n452:
    col = line.rstrip("\n").split()
-   if col[4] == "Z":
-       list452.append(col[3])
+   methylation452[col[3]] = col[4]
    
-for line1 in n454:
-   col1 = line1.rstrip("\n").split()
-   if col1[4] == "Z":
-       list454.append(col1[3])
-   
-# for item in list452:
-#     if item not in list454:
-#         uniq452.append(item)
+for line in n454:
+   col = line.rstrip("\n").split()
+   methylation454[col[3]] = col[4]
 
-for item in list454:
-    if item not in list452:
-        uniq454.append(item)
+for start in methylation452:
+    if start in methylation454:
+        if methylation452[start] == 'Z' and methylation454[start] == 'z':
+            upmeth452.append(start)
+        elif methylation452[start] == 'z' and methylation452[start] == 'Z':
+            upmeth454.append(start)
 
-print(uniq454)
+print(upmeth454)
