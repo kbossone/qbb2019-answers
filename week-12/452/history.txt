@@ -1,0 +1,500 @@
+   19  man macs
+   20  less -S g1e.tar.xz 
+   21  bowtie2-build
+   22  bowtie2-build g1e.tar.xz G1E
+   23  source deactivate
+   24  deactivate
+   25  bash deactivate
+   26  conda deactivate
+   27  bowtie2-build g1e.tar.xz G1E
+   28  ls
+   29  clear
+   30  bowtie2-build g1e
+   31  ls
+   32  cd mus_musculus_genome 
+   33  bowtie2-build mus_musculus_genome mouse
+   34  rm mus_musculus_genome 
+   35  bowtie2-build chr19.fa mouse
+   36  ls
+   37  ls
+   38  rm mouse.
+   39  ls
+   40  rm mouse.*
+   41  bowtie2-build chr19.fa.gz mouse
+   42  ls
+   43  mkdir mousegen
+   44  mv mouse.* mouse
+   45  ls
+   46  cd mousegen/
+   47  mv ../mouse.* .
+   48  ls
+   49  cd ..
+   50  ls
+   51  clear
+   52  ls
+   53  man bowtie2
+   54  bowtie2 -h
+   55  bowtie2 -x mousegen/ -q g1e/CTCF_ER4.fastq -S CTCF_ER4.sam
+   56  ls
+   57  ls g1e/
+   58  bowtie2 -x mousegen/mouse -q g1e/CTCF_ER4.fastq -S CTCF_ER4.sam
+   59  ls
+   60  conda activate macs2
+   61  callpeak -t mousegen/ -c mousegen/ -n macs
+   62  callpeaks -t mousegen/ -c mousegen/ -n macs
+   63  macs2 callpeaks -t mousegen/ -c mousegen/ -n macs
+   64  macs2 -h
+   65  macs2 callpeak -t mousegen/mouse -c mousegen/ -n macs
+   66  macs2 callpeak -t mousegen/mouse.* -c mousegen/ -n macs
+   67  macs2 callpeak -t mousegen/mouse.* -c mousegen/mouse.* -n macs
+   68  MACS callpeak -h
+   69  MACS2 callpeak -h
+   70  ls
+   71  macs2 callpeak -t mousegen/m -c g1e/input_ -n macs
+   72  MACS2 callpeak -h
+   73  ls
+   74  cd mousegen/
+   75  l
+   76  ls
+   77  cd ..
+   78  ls
+   79  macs2 callpeak -f SAM -t g1e/CTCF_G1E.fastq -c g1e/input_G1E.fastq -g 81e6 --outdir G1E
+   80  macs2 callpeak -t g1e/CTCF_G1E.fastq -c g1e/input_G1E.fastq -g 81e6 --outdir G1E
+   81  conda deactivate
+   82  samtools view -S -b CTCF_ER4.sam > CTCF_ER4.bam
+   83  bowtie2 -x mousegen/mouse -q g1e/CTCF_G1E.fastq -S CTCF_G1E.sam
+   84  bowtie2 -x mousegen/mouse -q g1e/input_ER4.fastq -S input_E34.sam
+   85  bowtie2 -x mousegen/mouse -q g1e/input_G1E.fastq -S input_G1E.sam
+   86  samtools view -S -b CTCF_G1E.sam > CTCF_G1E.bam
+   87  samtools view -S -b input_G1E.sam > input_G1E.bam
+   88  samtools view -S -b input_E34.sam > input_E34.bam
+   89  ls
+   90  macs2 callpeak -t CTCF_ER4.bam -c input.ER4.bam -g 81e6 --outdir CTCF_ER4
+   91  conda activate MACS2
+   92  macs2 callpeak -t CTCF_ER4.bam -c input.ER4.bam -g 81e6 --outdir CTCF_ER4
+   93  macs2 callpeak -t CTCF_ER4.bam -c input-ER4.bam -g 81e6 --outdir CTCF_ER4
+   94  ls
+   95  macs2 callpeak -t CTCF_ER4.bam -c input_ER4.bam -g 81e6 --outdir CTCF_ER4
+   96  ls
+   97  macs2 callpeak -t CTCF_ER4.bam -c input_E34.bam -g 81e6 --outdir CTCF_ER4
+   98  macs2 callpeak -t CTCF_G1E.bam -c input_G1E.bam -g 81e6 --outdir CTCF_ER4
+   99  ls
+  100  cd CTCF_ER4
+  101  ls
+  102  macs2 callpeak -t CTCF_ER4.bam -c input_E34.bam -g 81e6 --outdir CTCF_ER4
+  103  cd ..
+  104  macs2 callpeak -t CTCF_ER4.bam -c input_E34.bam -g 81e6 --outdir CTCF_ER4
+  105  macs2 callpeak -t CTCF_G1E.bam -c input_G1E.bam -g 81e6 --outdir CTCF_G1E
+  106  ls
+  107  cd CTCF_E34
+  108  cd CTCF_ER4
+  109  ls
+  110  less -S NA_peaks.peaks.narrowpeak
+  111  less -S NA_peaks.narrowPeak 
+  112  wc NA_peaks.narrowPeak 
+  113  cd ..
+  114  wc CTCF_G1E/NA_peaks.narrowPeak 
+  115  less -S CTCF_G1E/NA_peaks.narrowPeak 
+  116  man cut
+  117  mate fix.py
+  118  ./fix.py CTCF_ER4/NA_peaks.narrowPeak > CTCF_ER4-narrowpeak.bed
+  119  ./fix.py CTCF_G1E/NA_peaks.narrowPeak > CTCF_G1E-narrowpeak.bed
+  120  less -S CTCF_G1E-narrowpeak.bed 
+  121  less -S CTCF_ER4-narrowpeak.bed 
+  122  less -S CTCF_G1E-narrowpeak.bed 
+  123  conda deactivate
+  124  man bedtools
+  125  bedtools -h
+  126  bedtools subtract CTCF_ER4-narrowpeak.bed CTCF_G1E-narrowpeak.bed > mix.bed
+  127  bedtools subtract -a CTCF_ER4-narrowpeak.bed -b CTCF_G1E-narrowpeak.bed > mix.bed
+  128  wc mix.bed 
+  129  wc CTCF_ER4-narrowpeak.bed 
+  130  bedtools intersect -a CTCF_ER4-narrowpeak.bed -b CTCF_G1E-narrowpeak.bed > mix.bed
+  131  wc mix.bed 
+  132  bedtools intersect -a CTCF_G1E-narrowpeak.bed -b CTCF_ER4-narrowpeak.bed > mix.bed
+  133  wc mix.bed 
+  134  bedtools intersect -a CTCF_G1E-narrowpeak.bed -b CTCF_ER4-narrowpeak.bed > intersect.bed
+  135  rm mix.bed 
+  136  less -S Mus_musculus.GRCm38.94_features.bed 
+  137  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b G1E_narrowPeak.bed > overlap_G1E.bed
+  138  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect.bed > overlap_intersect.bed
+  139  ls
+  140  rm overlap_G1E.bed 
+  141  rm overlap_intersect.bed 
+  142  less -S CTCF_ER4-narrowpeak.bed 
+  143  less -S Mus_musculus.GRCm38.94_features.bed 
+  144  mate matches.py
+  145  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect.bed > overlap_intersect.bed
+  146  less -S overlap_intersect.bed 
+  147  less -S overlap_intersect.bed 
+  148  ./matches.py overlap_intersect.bed 
+  149  ./matches.py overlap_intersect.bed 
+  150  ./matches.py overlap_intersect.bed 
+  151  ./matches.py overlap_intersect.bed > features.txt
+  152  ./matches.py overlap_intersect.bed 
+  153  ./matches.py overlap_intersect.bed 
+  154  ./matches.py overlap_intersect.bed > features.txt
+  155  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b CTCF_ER4-narrowpeak.bed > ER4_intersect.bed
+  156  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b CTCF_G1E-narrowpeak.bed > G1E_intersect.bed
+  157  rm features.txt 
+  158  ls
+  159  ./matches.py ER4_intersect.bed 
+  160  ./matches.py G1E_intersect.bed 
+  161  bedtools intersect -a CTCF_ER4-narrowpeak.bed -b CTCF_G1E-narrowpeak.bed > intersect2.bed
+  162  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect.bed > intersect1.bed
+  163  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect2.bed > intersect2.bed
+  164  rm G1E_intersect.bed 
+  165  rm ER4_intersect.bed 
+  166  ls
+  167  ./matches.py intersect1.bed > intersect1.txt
+  168  ./matches.py intersect2.bed > intersect2.tx
+  169  ./matches.py intersect2.bed 
+  170  ./matches.py intersect1.bed
+  171  less -S intersect2.txt 
+  172  less -S intersect2.bed 
+  173  history
+  174  less -S intersect2.bed 
+  175  less -S CTCF_ER4-narrowpeak.bed 
+  176  less -S CTCF_G1E-narrowpeak.bed 
+  177  bedtools intersect -a CTCF_ER4-narrowpeak.bed -b CTCF_G1E-narrowpeak.bed > intersect2.bed
+  178  less -S intersect2.bed 
+  179  bedtools intersect -a intersect2.bed -b Mus_musculus.GRCm38.94_features.bed > intersect2.txt
+  180  ./matches.py intersect1.txt 
+  181  ./matches.py intersect1.bed
+  182  ./matches.py intersect1.bed > intersect1.txt 
+  183  ./matches.py intersect2.bed > intersect2.txt 
+  184  ./matches.py intersect2.bed  
+  185  ./matches.py intersect2.txt 
+  186  less -S intersect2.bed 
+  187  less -S intersect2.bed 
+  188  less -S intersect2.bed
+  189  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect2.bed > intersect-2.bed
+  190  ./matches.py intersect-2.bed 
+  191  ./matches.py intersect-2.bed > intersect2.txt
+  192  ./matches.py intersect1.bed > intersect1.txt
+  193  open matches.py 
+  194  ./matches.py intersect1.bed intersect2.bed 
+  195  ./matches.py intersect1.bed intersect2.bed 
+  196  ./matches.py intersect1.bed intersect2.bed 
+  197  ./matches.py intersect1.bed intersect2.bed 
+  198  less -S intersect2.bed 
+  199  ./matches.py intersect1.bed intersect-2.bed 
+  200  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  201  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  202  ls
+  203  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  204  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  205  open week6_plot.png 
+  206  wc intersect2.bed 
+  207  wc intersect.bed 
+  208   542    3252   22305 intersect2.bed
+  209  history
+  210  bedtools intersect -v -a CTCF_ER4-narrowpeak.bed -b CTCF_G1E-narrowpeak.bed > intersect2.bed
+  211  bedtools intersect -v -a CTCF_G1E-narrowpeak.bed -b CTCF_ER4-narrowpeak.bed > intersect2.bed
+  212  bedtools intersect -v -a CTCF_ER4-narrowpeak.bed -b CTCF_G1E-narrowpeak.bed > intersect2.bed
+  213  bedtools intersect -v -a CTCF_G1E-narrowpeak.bed -b CTCF_ER4-narrowpeak.bed > intersect.bed
+  214  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  215  open week6_plot.png 
+  216  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect2.bed > intersect-2.bed
+  217  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect.bed > intersect1.bed
+  218  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  219  open week6_plot.png 
+  220  open week6_plot.png 
+  221  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  222  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  223  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  224  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  225  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  226  open week6_plot.png 
+  227  open intersect1.txt 
+  228  open intersect-2.txt 
+  229  open intersect2.txt 
+  230  open intersect1.txt 
+  231  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  232  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  233  open intersect1.txt 
+  234  open week6_plot.png 
+  235  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed
+  236  open week6_plot.png 
+  237  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  238  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect.txt 
+  239  open intersect2.txt intersect.txt 
+  240  open intersect2.txt 
+  241  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect.txt 
+  242  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  243  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  244  open intersect2.txt 
+  245  open intersect1.txt 
+  246  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  247  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  248  open intersect2.txt 
+  249  open intersect1.txt 
+  250  open intersect2.txt 
+  251  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  252  open week6_plot.png 
+  253  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  254  open week6_plot.png 
+  255  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed > intersect2.txt 
+  256  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  257  history
+  258  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  259  open week6_plot.png 
+  260  open intersect1.txt
+  261  open intersect2.txt
+  262  open intersect1.bed
+  263  less -S intersect1.bed 
+  264  less -S intersect1.bed 
+  265  less -S intersect1.bed 
+  266  less -S intersect1.bed 
+  267  wc intersect1.bed
+  268  wc intersect-2.bed
+  269  wc intersect2.bed
+  270  wc intersect.bed
+  271  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  272  open *.png
+  273  wc intersect.bed
+  274  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  275  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  276  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  277  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  278  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  279  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  280  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  281  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  282  bedtools intersect -a Mus_musculus.GRCm38.94_features.bed -b intersect.bed > intersect1.bed
+  283  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  284  open intersect1.txt
+  285  ./matches.py intersect1.bed intersect-2.bed intersect2.bed intersect.bed 
+  286  git add *.png
+  287  git add matches.py 
+  288  git commit -m " "
+  289  git commit -m "week6"
+  290  git push
+  291  cd Downloads/
+  292  ls ..
+  293  ls
+  294  open REPLICATE_2
+  295  open REPLICATE_2/slam.py 
+  296  ls
+  297  cd Replicate1
+  298  la
+  299  ls
+  300  cd originals/
+  301  ls
+  302  cd
+  303  cd Downloads/REPLICATE_2
+  304  ls
+  305  ./slam.py WTG1_slam_R2.tsv 
+  306  ./slam.py WTG1_slam_R2.tsv 
+  307  ./slam.py WTG1_slam_R2.tsv 
+  308  ./slam.py WTG1_slam_R2.tsv > test.tsv
+  309  open test.tsv 
+  310  rm test.csv
+  311  ./slam.py WTG1_slam_R2.tsv > test.csv
+  312  rm test.csv 
+  313  ./slam.py WTG1_slam_R2.tsv |less -S
+  314  ./slam.py WTG1_slam_R2.tsv |less -S
+  315  ./slam.py WTG1_slam_R2.tsv 
+  316  ./slam.py WTG1_slam_R2.tsv | head
+  317  ./slam.py WTG1_slam_R2.tsv 
+  318  ./slam.py WTG1_slam_R2.tsv 
+  319  ./slam.py WTG1_slam_R2.tsv 
+  320  ./slam.py WTG1_slam_R2.tsv 
+  321  ls
+  322  open run.sh 
+  323  ./slam.py WTG1_slam_R2.tsv 
+  324  ./slam.py WTG1_slam_R2.tsv 
+  325  ./slam.py WTG1_slam_R2.tsv > test.tsv
+  326  cat test.tsv > letest.tsv
+  327  cat WTG1.tsv > letest.tsv 
+  328  cat test.tsv >> letest.tsv
+  329  sort letest.tsv | uniq -d > letest1.tsv
+  330  rm letest.tsv 
+  331  grep -f letest1.tsv WTG1_slam_R2.tsv > letest2.tsv
+  332  less -S letest2.tsv 
+  333  less -S letest1.tsv 
+  334  rm letest1.tsv 
+  335  rm letest2.tsv 
+  336  cat WTG1.tsv > letest.tsv 
+  337  cat test.tsv >> letest.tsv
+  338  less -S letest.tsv 
+  339  rm letest.tsv 
+  340  rm test.tsv 
+  341  clear
+  342  ./slam.py WTG1_slam_R2.tsv 
+  343  conda install meme
+  344  cd qbb2019-answers/
+  345  ls
+  346  mkdir week-9
+  347  cd week-9/
+  348  ls
+  349  https://raw.githubusercontent.com/bxlab/qbb2019/master/data/ER4_peaks.narrowPeak
+  350  wget "https://raw.githubusercontent.com/bxlab/qbb2019/master/data/ER4_peaks.narrowPeak"
+  351  ls
+  352  ls
+  353  meme -h
+  354  meme-chip -h
+  355  meme-chip -meme-nmotifs 100 -db meme-5.1.0/* ER4_peaks.narrowPeak 
+  356  ls
+  357  tomtom -h
+  358  less -S memechip_out/seqs-centered 
+  359  less -S memechip_out/centrimo_msgs.txt 
+  360  less -S memechip_out/dreme_msgs.txt 
+  361  rm -R memechip_out/
+  362  ls
+  363  ls meme-5.1.0/
+  364  meme-chip -meme-nmotifs 100 -db meme-5.1.0* ER4_peaks.narrowPeak 
+  365  clear
+  366  ls
+  367  rm -R memechip_out/
+  368  meme-chip -h
+  369  ls
+  370  cd meme-5.1.0/
+  371  ls
+  372  cd qbb2019-answers/
+  373  mkdir week-10
+  374  cd week-10/
+  375  wget "https://www.dropbox.com/s/7hxh7f61756vc4k/hema_data.txt"
+  376  ls
+  377  clear
+  378  mate clustering.py
+  379  cd ../week-6/
+  380  ls
+  381  open fix.py 
+  382  cd ../week-10/
+  383  ls'
+  384  clear
+  385  ls
+  386  less -S hema_data.txt 
+  387  wc hema_data.txt 
+  388  ./clustering.py hema_data.txt 
+  389  ./clustering.py hema_data.txt 
+  390  ./clustering.py hema_data.txt 
+  391  mate ../week-6/matches.py 
+  392  ./clustering.py hema_data.txt 
+  393  ./clustering.py hema_data.txt 
+  394  ./clustering.py hema_data.txt 
+  395  ./clustering.py hema_data.txt 
+  396  ./clustering.py hema_data.txt 
+  397  ./clustering.py hema_data.txt | wc
+  398  ./clustering.py hema_data.txt | wc
+  399  ./clustering.py hema_data.txt | wc
+  400  ./clustering.py hema_data.txt | less -S
+  401  ./clustering.py hema_data.txt | less -S
+  402  ./clustering.py hema_data.txt | less -S
+  403  ./clustering.py hema_data.txt 
+  404  ./clustering.py hema_data.txt 
+  405  ./clustering.py hema_data.txt 
+  406  ./clustering.py hema_data.txt 
+  407  ./clustering.py hema_data.txt 
+  408  ./clustering.py hema_data.txt 
+  409  ./clustering.py hema_data.txt 
+  410  ./clustering.py hema_data.txt 
+  411  ./clustering.py hema_data.txt 
+  412  ./clustering.py hema_data.txt 
+  413  ./clustering.py hema_data.txt 
+  414  ./clustering.py hema_data.txt 
+  415  ./clustering.py hema_data.txt 
+  416  ./clustering.py hema_data.txt 
+  417  cd ..
+  418  mkdir week-11
+  419  cd week-11
+  420  ls
+  421  clear
+  422  activate scanpy
+  423  ckear
+  424  clear
+  425  conda activate scanpy
+  426  conda scanpy
+  427  clear
+  428  conda install scanpy
+  429  clear
+  430  wget https://bx.bio.jhu.edu/data/cmdb-lab/scrnaseq/neuron_10k_v3_filtered_feature_bc_matrix.h5
+  431  ls
+  432  mate filtering.py
+  433  mate ../week-10/clustering.py 
+  434  ls
+  435  clear
+  436  conda create scanpy
+  437  conda activate scanpy
+  438  conda activate scanpy
+  439  clear
+  440  history
+  441  conda scanpy
+  442  conda create -n scanpy
+  443  conda activate scanpy
+  444  clear
+  445  ./filtering.py 
+  446  ./filtering.py 
+  447  ./filtering.py 
+  448  ./filtering.py 
+  449  ./filtering.py 
+  450  ./filtering.py 
+  451  mate clustering.py
+  452  ./filtering.py 
+  453  ./filtering.py 
+  454  ./filtering.py 
+  455  ls
+  456  mate ../week-6
+  457  mate ../week-6/matches.py 
+  458  mate ../week-6/matches.py 
+  459  ./filtering.py 
+  460  cd qbb2019-answers/week-11/
+  461  ls
+  462  open filtering.py 
+  463  ./filtering.py 
+  464  ./filtering.py 
+  465  open filtering.py 
+  466  ./filtering.py 
+  467  ./filtering.py 
+  468  ./filtering.py 
+  469  ./filtering.py 
+  470  ./filtering.py 
+  471  ./filtering.py 
+  472  cd qbb2019-answers/week-11/log.png 
+  473  open qbb2019-answers/week-11/log.png 
+  474  cd qbb2019-answers/week-11/
+  475  ./filtering.py 
+  476  ./filtering.py 
+  477  ./filtering.py 
+  478  ./filtering.py 
+  479  ./filtering.py 
+  480  ./filtering.py 
+  481  ./filtering.py 
+  482  ./filtering.py 
+  483  ./filtering.py 
+  484  open log.png 
+  485  git add Clustering.png filtering.py Unfiltered.png log.png t-test.png 
+  486  git add Clustering.png filtering.py Unfiltered.png log.png t-test.png 
+  487  ./filtering.py 
+  488  ./fil.py 
+  489  open log.png 
+  490  ./fil.py 
+  491  ./filtering.py 
+  492  ./filtering.py 
+  493  ./filtering.py 
+  494  open log.png 
+  495  ./filtering.py 
+  496  ls
+  497  git add ../week-11/*
+  498  git commit -m "stuff"
+  499  git push
+  500  ls
+  501  samtools index SRR1035452_1_bismark_bt2_pe_this.bam 
+  502  ls
+  503  pwd
+  504  cd ../454
+  505  samtools index SRR1035454_1_bismark_bt2_pe_this.bam 
+  506  cd ../452/
+  507  samtools view -S -b SRR1035452_1_bismark_bt2_pe.bam > SRR1035452_1_bismark_bt2_pe.sam
+  508  cd ../454/
+  509  samtools view -S -b SRR1035454_1_bismark_bt2_pe.bam > SRR1035454_1_bismark_bt2_pe.sam
+  510  bismark_methylation_extractor -s --bedgraph --comprehensive SRR1035454_1_bismark_bt2_pe.sam 
+  511  bismark_methylation_extractor -s --bedgraph --comprehensive SRR1035452_1_bismark_bt2_pe.sam 
+  512  ls
+  513  cd ../452/
+  514  bismark_methylation_extractor -s --bedgraph --comprehensive SRR1035452_1_bismark_bt2_pe.sam 
+  515  less -S 
+  516  less -S SRR1035452_1_bismark_bt2_pe_this.bam
+  517  LS
+  518  history > history.txt
