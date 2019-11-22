@@ -26,7 +26,7 @@ for start in methylation452:
     if start in methylation454:
         if methylation452[start] == 'Z' and methylation454[start] == 'z':
             upmeth452.append(start)
-        elif methylation452[start] == 'z' and methylation452[start] == 'Z':
+        elif methylation452[start] == 'z' and methylation454[start] == 'Z':
             upmeth454.append(start)
 
 print(upmeth454)
