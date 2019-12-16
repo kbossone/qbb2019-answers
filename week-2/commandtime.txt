@@ -1,0 +1,73 @@
+PART 1:
+SPADES
+time spades.py -s reads_low_1.fastq -s reads_low_2.fastq -o spades
+real	0m2.543s
+user	0m2.916s
+sys	0m1.048s
+
+VELVET
+time velveth VH 15 -fastq -shortPaired reads_low_1.fastq reads_low_2.fastq
+real	0m0.311s
+user	0m0.513s
+sys	0m0.439s
+velveth VH 15 -fastq -shortPaired reads_low_1.fastq reads_low_2.fastq > velveth.out
+
+time velvetg VH
+real	0m0.157s
+user	0m0.156s
+sys	0m0.034s
+
+SUMMARY
+time ./FASTA.py velvet/VH/contigs.fa > velvet-Part1-summary.txt
+real	0m0.892s
+user	0m0.678s
+sys	0m0.142s
+
+time ./FASTA.py spades/contigs.fasta > spades-part-1-summary.txt
+real	0m0.838s
+user	0m0.672s
+sys	0m0.129s
+
+PLOT
+time lastz reference.fasta velvet/VH/contigs.fa --chain --format=general > velvet-part-1.out
+real	0m1.065s
+user	0m1.006s
+sys	0m0.031s
+
+time lastz reference.fasta part-1/spades/contigs.fasta --chain --format=general > spades-part-1.out
+real	0m0.991s
+user	0m0.951s
+sys	0m0.028s
+
+
+PART 2:
+time spades.py --nanopore MAP006.subset.fa -s part-1/reads_low_1.fastq -o spades
+real	0m2.388s
+user	0m1.955s
+sys	0m1.082s
+
+time ./FASTA.py spades/K21/simplified_contigs.fasta > spades-part-2-summary.txt
+real	0m0.851s
+user	0m0.676s
+sys	0m0.131s
+
+
+PART 3:
+SPADES
+time spades.py -s reads_1.fastq -s reads_2.fastq -o spades
+real	3m12.065s
+user	7m34.185s
+sys	0m15.389s
+
+VELVET
+time velveth VH 15 -fastq -shortPaired reads_1.fastq reads_2.fastq 
+real	0m8.223s
+user	0m21.692s
+sys	0m0.916s
+
+time velvetg VH
+real	0m11.568s
+user	0m27.117s
+sys	0m1.051s
+
+SUMMARY and PLOT -- same as part 1 summary just changed output name
