@@ -1,0 +1,11 @@
+Tsc22d1 - Hematopoietic system
+Dbi - High in glial cells
+Tubb3 - Neuronal cell type specific
+Lhx6 - Ivy and MGE-derived neurogliaform cells
+Arpp21 - Neuronal cells and to some degree glial cells
+Zbtb20 - Excitatory neurons
+Dlx6os1 - Neuronal, CNS
+Hbb-bs - Erythrocytes
+Arpc1b - Hematopoietic system, immune cells especially.
+Reln - CGE-derived neurogliaform cells
+Rgs5 - Brain pericytes
