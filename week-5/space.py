@@ -56,19 +56,19 @@ while True:
     if nucl_id is None:
         break
     nucleo[nucl_id] = nucl_seq
-
-for seq_ID in nucleo:
-   nuc_pos = 0
-   nuc_update = ""
-   prot_seq = prot[seq_ID]
-   nucl_seq = nucleo[seq_ID]
-   for char in prot_seq:
-       if char == "-":
-           nuc_update += "---"
-       else:
-           nuc_update += nucl_seq[nuc_pos:nuc_pos+3]
-           nuc_pos += 3           
-   back_to_nucleo[seq_ID] = nuc_update
+    
+for seq_ID in prot:
+    nuc_pos = 0
+    nuc_update = ""
+    prot_seq = prot[seq_ID]
+    nucl_seq = nucleo[seq_ID]
+    for char in prot_seq:
+        if char == "-":
+            nuc_update += "---"
+        else:
+            nuc_update += nucl_seq[nuc_pos:nuc_pos+3]
+            nuc_pos += 3           
+    back_to_nucleo[seq_ID] = nuc_update
    
 table = { 
         'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M', 
@@ -107,7 +107,6 @@ for i in range(0,len(back_to_nucleo['query']), 3):
                ds_count += 1
            else:
                dn_count += 1
-
    d = dn_count - ds_count
    d_score.append(d)
 
