@@ -81,15 +81,17 @@ def nw( dmat, tmat, s, t ):
     elif tscore == 2:
         align1 += s[i-1]
         align2 += '-'
+        mutations += '-'
         i -= 1
     elif tscore == 3:
         align1 += '-'
         align2 += t[j-1]
+        mutations += '-'
         j -= 1
 
   align1 = align1[::-1]
   align2 = align2[::-1]
-  print ('Sequence 1: ', '\t', align1, '\t', '\n', 'Sequence 2: ', '\t', align2,'\n', 'Mismatched: ', '\t', mut, '\n', 'Score: ', '\t', str(score))
+  print ('Sequence 1: ', '\t', align1, '\t', '\n', 'Sequence 2: ', '\t', align2,'\n', 'Mismatched: ', '\t', mutations, '\n', 'Score: ', '\t', str(score))
 
 dmat, tmat = nwmatrix(seq1, seq2)
 nw(dmat, tmat, seq1, seq2)
